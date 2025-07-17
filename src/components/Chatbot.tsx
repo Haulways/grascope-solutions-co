@@ -22,6 +22,9 @@ const initialMessages: Message[] = [
     options: [
       { label: "🛠 IT Solutions", value: "it" },
       { label: "👥 BPO Outsourcing", value: "bpo" },
+      { label: "📊 ROI Calculator", value: "roi" },
+      { label: "🔍 StackCheck", value: "stackcheck" },
+      { label: "📰 Company Brochure", value: "brochure" },
       { label: "🤝 Book a Consultation", value: "book" },
       { label: "❓ Something else", value: "else" },
     ],
@@ -51,7 +54,7 @@ export default function Chatbot() {
           text: `Got it! Here's everything you need to know about our IT builds.`,
         },
       ]);
-      setTimeout(() => window.open("/it-services", "_blank"), 1200);
+      setTimeout(() => window.open("/it-services", "_blank"), 1500);
     } else if (value === "bpo") {
       setMessages((msgs) => [
         ...msgs,
@@ -61,17 +64,47 @@ export default function Chatbot() {
           text: `Great! Here's how we help companies scale their teams.`,
         },
       ]);
-      setTimeout(() => window.open("/bpo-solutions", "_blank"), 1200);
+      setTimeout(() => window.open("/bpo-solutions", "_blank"), 1500);
+    } else if (value === "roi") {
+      setMessages((msgs) => [
+        ...msgs,
+        { from: "user", text: "📊 ROI Calculator" },
+        {
+          from: "bot",
+          text: `Here's our ROI calculator to help estimate your potential savings.`,
+        },
+      ]);
+      setTimeout(() => window.open("/roi", "_blank"), 1500);
+    } else if (value === "stackcheck") {
+      setMessages((msgs) => [
+        ...msgs,
+        { from: "user", text: "🔍 StackCheck" },
+        {
+          from: "bot",
+          text: `Check your tech stack's compatibility with our StackCheck tool.`,
+        },
+      ]);
+      setTimeout(() => window.open("/stack-check", "_blank"), 1500);
+    } else if (value === "brochure") {
+      setMessages((msgs) => [
+        ...msgs,
+        { from: "user", text: "📰 Company Brochure" },
+        {
+          from: "bot",
+          text: `Here's our company brochure with all our services and offerings.`,
+        },
+      ]);
+      setTimeout(() => window.open("/Grascope Brochure.pdf", "_blank"), 1500);
     } else if (value === "book") {
       setMessages((msgs) => [
         ...msgs,
         { from: "user", text: "🤝 Book a Consultation" },
         {
           from: "bot",
-          text: `Let’s get that booked for you.`,
+          text: `Let's get that booked for you.`,
         },
       ]);
-      setTimeout(() => window.open("https://calendly.com/grascope", "_blank"), 1200);
+      setTimeout(() => window.open("https://calendly.com/grascope", "_blank"), 1500);
     } else if (value === "else") {
       setMessages((msgs) => [
         ...msgs,
@@ -94,7 +127,7 @@ export default function Chatbot() {
           },
         ]);
         setAwaitingEscalation(true);
-      }, 1200);
+      }, 1500);
     } else if (value === "escalate") {
       setMessages((msgs) => [
         ...msgs,
@@ -105,9 +138,9 @@ export default function Chatbot() {
         },
       ]);
       setTimeout(() => {
-    // Open a new tab with a dedicated Tawk.to chat page
-    window.open("https://wa.me/2348182931756", "_blank");
-  }, 1200);
+        // Open a new tab with a dedicated Tawk.to chat page
+        window.open("https://wa.me/2348182931756", "_blank");
+      }, 1500);
     } else if (value === "noescalate") {
       setMessages((msgs) => [
         ...msgs,
